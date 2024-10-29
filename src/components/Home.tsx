@@ -21,7 +21,7 @@ const Home = () => {
 
   const fetchTodos = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:3000/api/todo");
+      const res = await axios.get("https://golangtodo-back.onrender.com/api/todo");
       setTodos(res.data);
     } catch (error) {
       toast.error("Failed to fetch todos"); // Updated to use Sonner
@@ -30,7 +30,7 @@ const Home = () => {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await axios.delete(`http://127.0.0.1:3000/api/todo/${id}`);
+      const res = await axios.delete(`https://golangtodo-back.onrender.com/api/todo/${id}`);
       if (res.status === 200) {
         setTodos(todos.filter(todo => todo._id !== id));
         toast.success("Task deleted successfully"); // Updated to use Sonner
@@ -45,7 +45,7 @@ const Home = () => {
     if (!newTodo.trim()) return;
 
     try {
-      const res = await axios.post("http://127.0.0.1:3000/api/todo", { body: newTodo });
+      const res = await axios.post("https://golangtodo-back.onrender.com/api/todo", { body: newTodo });
       setTodos([...todos, res.data]);
       setNewTodo('');
       toast.success("New task added"); // Updated to use Sonner

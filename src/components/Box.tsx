@@ -20,7 +20,7 @@ const Box: React.FC<BoxProps> = ({ id, description, completed, onDelete }) => {
 
   const handleComplete = async () => {
     try {
-      const res = await axios.patch(`http://127.0.0.1:3000/api/todo/${id}`, { completed: true });
+      const res = await axios.patch(`https://golangtodo-back.onrender.com/api/todo/${id}`, { completed: true });
       if (res.status === 200) {
         setIsCompleted(true);
         toast.success("Task marked as complete"); // Use Sonner toast
